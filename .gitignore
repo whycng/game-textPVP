@@ -1,0 +1,19 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+
+# Godot-specific files
+.import/
+.export/
+*.godot
+*.tscn.import
+*.tres.import
+*.import/
+
+# User-specific files
+.vscode/
+.idea/
+
+# Build output (Godot 3.0 and 4.0 may differ)
+bin/

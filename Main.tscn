@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpb5s1dn2xbw0"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_ocjde"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ocjde")
+
+[node name="GameLogic" type="Node2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="Effects" type="Node2D" parent="UI/CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="UI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+text = "就是疯狂的就是说"
+
+[node name="ScoreLabel" type="Label" parent="UI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "请文明发言"
+horizontal_alignment = 1
+
+[node name="SendButton" type="Button" parent="UI/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "button"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="text_changed" from="UI/PanelContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="UI/PanelContainer/VBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
